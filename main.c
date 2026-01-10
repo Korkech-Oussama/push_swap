@@ -14,7 +14,7 @@
 
 int	main(int ac, char *av[])
 {
-	t_stack *stack_a;
+	t_stack	*stack_a;
 
 	stack_a = stack_init(ac, av);
 	if (!stack_a)

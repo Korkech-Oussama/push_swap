@@ -48,23 +48,23 @@ void	free_stack(t_stack **stack)
 	*stack = NULL;
 }
 
-int  append_args(t_stack **stack, char **args)
+int	append_args(t_stack **stack, char **args)
 {
-    long    val;
-    int     j;
+	long	val;
+	int		j;
 
 	if (is_syntax_err(args))
 		return (1);
-    j = 0;
-    while (args[j])
-    {
-        val = ft_atol(args[j]);
-        if (contains_duplicate(*stack, val))
-            return (1);
-        append_node(stack, (int)val);
-        j++;
-    }
-    return (0);
+	j = 0;
+	while (args[j])
+	{
+		val = ft_atol(args[j]);
+		if (contains_duplicate(*stack, val))
+			return (1);
+		append_node(stack, (int)val);
+		j++;
+	}
+	return (0);
 }
 
 t_stack	*stack_init(int ac, char **av)
@@ -91,5 +91,5 @@ t_stack	*stack_init(int ac, char **av)
 		free_args(args);
 		i++;
 	}
-	return(stack_a);
+	return (stack_a);
 }

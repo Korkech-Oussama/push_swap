@@ -71,4 +71,3 @@ void	print_list(t_stack *head)
 			break ;
 	}
 }
-
