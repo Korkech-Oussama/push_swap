@@ -15,14 +15,28 @@
 void	swap(t_stack **head)
 {
 	t_stack	*tail;
+	t_stack	*first;
+	t_stack	*second;
+	t_stack	*third;
 
-	tail = last(*head);
-	*head = (*head)->next;
-	(*head)->prev->next = (*head)->next;
-	(*head)->prev->prev = *head;
-	(*head)->next = (*head)->prev;
-	(*head)->prev = tail;
-	tail->next = *head;
+	if (!*head || !(*head)->next || *head == (*head)->next)
+		return ;
+	if ((*head)->next->next != *head)
+	{
+		first = *head;
+		tail = first->prev;
+		second = first->next;
+		third = second->next;
+		second->next = first;
+		first->prev = second;
+		first->next = third;
+		second->prev = tail;
+		third->prev = first;
+		tail->next = second;
+		*head = second;
+	}
+	else
+		*head = (*head)->next;
 }
 
 void	sa(t_stack **a)
