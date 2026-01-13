@@ -31,6 +31,34 @@ int	stack_len(t_stack *stack)
 	return (i);
 }
 
+void	set_rank(t_stack *stack)
+{
+	t_stack	*head;
+	t_stack	*compare;
+	int		rank;
+
+	if (!stack)
+		return ;
+	head = stack;
+	while (1)
+	{
+		rank = 0;
+		compare = head;
+		while (1)
+		{
+			if (compare->value < stack->value)
+				rank++;
+			compare = compare->next;
+			if (compare == head)
+				break ;
+		}
+		stack->rank = rank;
+		stack = stack->next;
+		if (stack == head)
+			return ;
+	}
+}
+
 void	current_index(t_stack *stack)
 {
 	t_stack	*head;
