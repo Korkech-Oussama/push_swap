@@ -17,10 +17,16 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <limits.h>
+# include <stdbool.h>
 
 typedef struct s_stack
 {
 	int				value;
+	int				index;
+	int				push_cost;
+	bool			above_median;
+	bool			cheapest;
+	struct s_stack	*target_node;
 	struct s_stack	*prev;
 	struct s_stack	*next;
 }			t_stack;

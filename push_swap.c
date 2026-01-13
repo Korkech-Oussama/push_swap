@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: okorkech <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/02 17:43:13 by okorkech          #+#    #+#             */
-/*   Updated: 2026/01/02 17:43:19 by okorkech         ###   ########.fr       */
+/*   Created: 2026/01/03 13:28:13 by okorkech          #+#    #+#             */
+/*   Updated: 2026/01/03 13:28:16 by okorkech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "push_swap.h"
-// void	add(char **av)
-// {
-// 	int i = 1;
-// 	int	x = 0;
-// 	while (av[i])
-// 	{
-// 		x = ft_atoi(av[i]) + i;
-// 		printf("%d\n", x);
-// 		i++;
-// 	}
-	
-// }
-// int	main(int ac, char *av[])
-// {
-// 	if (ac > 2)
-// 	{
-// 		add(av);
-// 	}
-// 	return (0);
-// }
+#include "push_swap.h"
+
+int	main(int ac, char *av[])
+{
+	t_stack	*stack_a;
+
+	stack_a = stack_init(ac, av);
+	if (!stack_a)
+		return (0);
+	print_list(stack_a);
+	free(stack_a);
+	return (0);
+}
