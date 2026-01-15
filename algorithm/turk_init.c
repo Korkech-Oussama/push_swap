@@ -12,25 +12,6 @@
 
 #include "../push_swap.h"
 
-int	stack_len(t_stack *stack)
-{
-	t_stack	*temp;
-	int		i;
-
-	if (!stack)
-		return (0);
-	i = 0;
-	temp = stack;
-	while (1)
-	{
-		i++;
-		temp = temp->next;
-		if (temp == stack)
-			break ;
-	}
-	return (i);
-}
-
 void	set_rank(t_stack *stack)
 {
 	t_stack	*head;
@@ -59,7 +40,7 @@ void	set_rank(t_stack *stack)
 	}
 }
 
-void	current_index(t_stack *stack)
+void	set_index(t_stack *stack)
 {
 	t_stack	*head;
 	int		i;
@@ -82,4 +63,71 @@ void	current_index(t_stack *stack)
 			break ;
 		i++;
 	}
+}
+
+void	set_target_node(t_stack *a, t_stack *b)
+{
+	t_stack	*b_head;
+
+	if (!a || !b)
+		return ;
+	b_head = b;
+	while (1)
+	{
+		b->target_node = get_best_match(a, b->value);
+		b = b->next;
+		if (b == b_head)
+			break ;
+	}
+}
+
+void	cost_analysis(t_stack *a, t_stack *b)
+{
+	int	cost_total;
+	int	b_moves;
+	int	a_moves;
+	t_stack	*b_head;
+
+	b_head = b;
+	while (1)
+	{
+		if (b->above_median)
+			b_moves = b->index;
+		else
+			b_moves = stack_len(b) - (b->index);
+		if (b->target_node->above_median)
+			a_moves = b->target_node->index;
+		else
+			a_moves = stack_len(a) - b->target_node->index;
+		cost_total = a_moves + b_moves;
+		b->push_cost = cost_total;
+		b = b->next;
+		if (b == b_head)
+			break ;
+	}
+}
+
+void	set_cheapest(t_stack *b)
+{
+	t_stack	*b_head;
+	t_stack	*best_node;
+	long	best_value;
+
+	if (!b)
+		return ;
+	b_head = b;
+	best_value = LONG_MAX;
+	while (1)
+	{
+		b->cheapest = false;
+		if (b->push_cost < best_value)
+		{
+			best_value = b->push_cost;
+			best_node = b;
+		}		
+		b = b->next;
+		if (b == b_head)
+			break ; 
+	}
+	best_node->cheapest = true;
 }

@@ -67,6 +67,13 @@ void	sb(t_stack **b);
 void	ss(t_stack **a, t_stack **b);
 
 int		stack_len(t_stack *stack);
-void	current_index(t_stack *stack);
+void	set_index(t_stack *stack);
+void	set_rank(t_stack *stack);
+t_stack	*find_min(t_stack *stack);
+t_stack	*get_best_match(t_stack *a, int b_value);
+void	set_target_node(t_stack *a, t_stack *b);
+int		get_chunk_size(int size);
+void	cost_analysis(t_stack *a, t_stack *b);
+void	set_cheapest(t_stack *b);
 
 #endif
