@@ -15,9 +15,9 @@
 int	get_chunk_size(int size)
 {
 	if (size <= 100)
-		return (20);
+		return (36);
 	else
-		return (45);
+		return (70);
 }
 
 int	stack_len(t_stack *stack)

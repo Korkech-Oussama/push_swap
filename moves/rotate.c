@@ -14,7 +14,7 @@
 
 void	rotate(t_stack	**head)
 {
-	if (!*head || !(*head)->next || *head == !(*head)->next)
+	if (!*head || !(*head)->next || *head == (*head)->next)
 		return ;
 	*head = (*head)->next;
 }

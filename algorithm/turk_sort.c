@@ -12,27 +12,22 @@
 
 #include "../push_swap.h"
 
-void	push_to_b(t_stack **a, t_stack **b)
+int	stack_sorted(t_stack *stack)
 {
-	int	limit;
-	int	chunk_size;
+	t_stack	*head;
 
-	chunk_size = get_chunk_size(stack_len(*a));
-	set_rank(*a);
-	limit = chunk_size;
-	while (stack_len(*a) > 3)
+	if (!stack)
+		return (1);
+	head = stack;
+	while (1)
 	{
-		if ((*a)->rank < limit)
-		{
-			pb(b, a);
-			if ((*b)->rank < limit - (chunk_size /2))
-				rb(b);
-			if (stack_len(*b) == limit)
-				limit += chunk_size;
-		}
-		else
-			ra(a);
+		if (stack->value > stack->next->value)
+			return (0);
+		stack = stack->next;
+		if (stack == head)
+			break ;
 	}
+	return (1);
 }
 
 void	sort_three(t_stack **stack)
@@ -54,7 +49,14 @@ void	sort_three(t_stack **stack)
 		sa(stack);
 }
 
-void	move_nodes(t_stack *b)
+void	sort_stacks(t_stack **a , t_stack **b)
 {
-	
+	push_to_b(a, b);
+	sort_three(a);
+	while (*b)
+	{
+		init_nodes(*a, *b);
+		push_back_to_a(a, b);
+	}
+	min_on_top(a);
 }

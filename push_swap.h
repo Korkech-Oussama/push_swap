@@ -75,5 +75,14 @@ void	set_target_node(t_stack *a, t_stack *b);
 int		get_chunk_size(int size);
 void	cost_analysis(t_stack *a, t_stack *b);
 void	set_cheapest(t_stack *b);
+void	init_nodes(t_stack *a, t_stack *b);
+void	sort_three(t_stack **stack);
+void	min_on_top(t_stack **a);
+void	push_back_to_a(t_stack **a, t_stack **b);
+void	prep_to_push(t_stack **stack, t_stack *cheapest, char c);
+void	push_to_b(t_stack **a, t_stack **b);
+int		stack_sorted(t_stack *stack);
+void	sort_stacks(t_stack **a , t_stack **b);
 
+void	free_stack(t_stack **stack);
 #endif
