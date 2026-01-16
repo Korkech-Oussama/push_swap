@@ -19,13 +19,11 @@ int	stack_sorted(t_stack *stack)
 	if (!stack)
 		return (1);
 	head = stack;
-	while (1)
+	while (stack->next != head)
 	{
 		if (stack->value > stack->next->value)
 			return (0);
 		stack = stack->next;
-		if (stack == head)
-			break ;
 	}
 	return (1);
 }
