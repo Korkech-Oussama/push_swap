@@ -37,7 +37,6 @@ void	push_to_b(t_stack **a, t_stack **b)
 
 void	prep_to_push(t_stack **stack, t_stack *cheapest, char c)
 {
-
 	if (c == 'a')
 	{
 		while ((*stack != cheapest) && (cheapest->above_median))
@@ -53,13 +52,14 @@ void	prep_to_push(t_stack **stack, t_stack *cheapest, char c)
 			rrb(stack);
 	}
 }
+
 t_stack	*get_cheapest(t_stack **b)
 {
 	t_stack	*curr_b;
 
 	if (!b || !*b)
 		return (NULL);
- 	curr_b = *b;
+	curr_b = *b;
 	while (1)
 	{
 		if (curr_b->cheapest)
@@ -88,7 +88,7 @@ void	push_back_to_a(t_stack **a, t_stack **b)
 		rrr(a, b);
 	prep_to_push(a, cheapest->target_node, 'a');
 	prep_to_push(b, cheapest, 'b');
-	pa(a , b);
+	pa(a, b);
 }
 
 void	min_on_top(t_stack **a)

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../checker.h"
 
 t_stack	*create_node(int value)
 {
@@ -68,6 +68,22 @@ int	is_empty(char *str)
 		if (str[i] != ' ')
 			return (0);
 		i++;
+	}
+	return (1);
+}
+
+int	stack_sorted(t_stack *stack)
+{
+	t_stack	*head;
+
+	if (!stack)
+		return (1);
+	head = stack;
+	while (stack->next != head)
+	{
+		if (stack->value > stack->next->value)
+			return (0);
+		stack = stack->next;
 	}
 	return (1);
 }

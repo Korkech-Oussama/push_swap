@@ -47,7 +47,7 @@ void	sort_three(t_stack **stack)
 		sa(stack);
 }
 
-void	sort_stacks(t_stack **a , t_stack **b)
+void	sort_stacks(t_stack **a, t_stack **b)
 {
 	push_to_b(a, b);
 	sort_three(a);

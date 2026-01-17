@@ -83,9 +83,9 @@ void	set_target_node(t_stack *a, t_stack *b)
 
 void	cost_analysis(t_stack *a, t_stack *b)
 {
-	int	cost_total;
-	int	b_moves;
-	int	a_moves;
+	int		cost_total;
+	int		b_moves;
+	int		a_moves;
 	t_stack	*b_head;
 
 	b_head = b;
@@ -124,10 +124,10 @@ void	set_cheapest(t_stack *b)
 		{
 			best_value = b->push_cost;
 			best_node = b;
-		}		
+		}
 		b = b->next;
 		if (b == b_head)
-			break ; 
+			break ;
 	}
 	best_node->cheapest = true;
 }

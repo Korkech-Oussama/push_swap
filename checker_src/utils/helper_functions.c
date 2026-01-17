@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../checker.h"
 
 int	ft_isdigit(int c)
 {
@@ -58,4 +58,33 @@ int	ft_isnum(char *nptr)
 		i++;
 	}
 	return (1);
+}
+
+int	ft_strcmp(const char *s1, const char *s2)
+{
+	while (*s1 && *s1 == *s2)
+	{
+		s1++;
+		s2++;
+	}
+	return ((unsigned char)*s1 - (unsigned char)*s2);
+}
+
+int	stack_len(t_stack *stack)
+{
+	t_stack	*temp;
+	int		i;
+
+	if (!stack)
+		return (0);
+	i = 0;
+	temp = stack;
+	while (1)
+	{
+		i++;
+		temp = temp->next;
+		if (temp == stack)
+			break ;
+	}
+	return (i);
 }

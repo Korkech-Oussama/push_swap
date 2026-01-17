@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../checker.h"
 
 int	is_syntax_err(char **av)
 {
@@ -46,14 +46,21 @@ int	contains_duplicate(t_stack *head, int value)
 	return (0);
 }
 
-int	print_error(void)
+void	print_error(void)
 {
 	write(2, "Error\n", 6);
-	return (0);
 }
 
 void	empty_error(t_stack **stack)
 {
 	free_stack(stack);
 	print_error();
+}
+
+int	error_exit(t_stack **a, t_stack **b)
+{
+	free_stack(a);
+	free_stack(b);
+	print_error();
+	exit(1);
 }
