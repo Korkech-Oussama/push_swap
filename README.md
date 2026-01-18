@@ -97,7 +97,80 @@ After all values are back in Stack A, a final rotation ensures the **smallest nu
 
 ### Compilation
 
-The project includes a `Makefile`:
+-The project includes a `Makefile`:
 
 ```bash
 make
+```
+Compiles the main executable `push_swap`.
+```bash
+make bonus
+```
+Compiles the bonus checker.
+```bash
+make clean
+```
+Removes object files.
+```bash
+make fclean
+```
+Removes all binaries and objects.
+
+### ▶️ Execution
+
+### Push_Swap (Sorting)
+```bash
+./push_swap 2 1 3 6 5 8
+```
+Outputs the list of instructions to sort the stack.
+
+### Checker (Verification)
+```bash
+ARG="4 67 3 87 23"; ./push_swap $ARG | ./checker $ARG
+```
+
+**Possible outputs:**
+- `OK` → Sorted correctly
+- `KO` → Sorting failed
+- `Error` → Invalid input or instruction
+
+## 🧪 Testing
+
+## Random 100 Numbers
+```bash
+ARG=$(seq -100 100 | sort -R | head -n 100 | tr '\n' ' ')
+./push_swap $ARG | ./checker $ARG
+```
+
+Used to benchmark performance and correctness.
+
+## 📚 Resources
+
+- [Push Swap Tutorial (Oceano)](https://example.com) – Stack manipulation breakdown
+- Turk Algorithm Discussions – Cost-analysis logic
+- Push Swap Visualizer – Visual debugging of stack operations
+
+## 🤖 AI Usage Disclosure
+
+AI tools were used responsibly and transparently for the following purposes:
+
+### Debugging & Logic Verification
+- Fixed intermittent KO issues
+- Corrected checker parsing (rrr vs rrb)
+
+### Test Case Generation
+- Extreme inputs (INT_MAX, INT_MIN, empty strings, lone signs)
+
+### Code Optimization
+- Helper functions for Norminette compliance
+- Function size constraints (≤ 25 lines)
+
+**Note:** No AI-generated code was copied directly into the final implementation.
+
+### ✅ Final Notes
+
+This project emphasizes:
+- Algorithmic efficiency
+- Strict rule compliance
+- Clean data structures
+- Optimized move calculation
