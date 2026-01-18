@@ -163,7 +163,6 @@ AI tools were used responsibly and transparently for the following purposes:
 
 ### Code Optimization
 - Helper functions for Norminette compliance
-- Function size constraints (≤ 25 lines)
 
 **Note:** No AI-generated code was copied directly into the final implementation.
 
