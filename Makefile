@@ -13,7 +13,7 @@ SRC = $(filter-out checker_src/%, $(ALL_FILES))
 BONUS_SRC = $(wildcard checker_src/*.c) $(wildcard checker_src/*/*.c)
 
 # Object files
-OBJ:=$(SRC:.c=.o)
+OBJ:=$(SRC:.c=.o)  
 #object bonus
 OBJ_BONUS = $(BONUS_SRC:.c=.o)
 
