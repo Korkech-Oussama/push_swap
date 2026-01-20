@@ -35,7 +35,6 @@ typedef struct s_stack
 t_stack	*create_node(int value);
 t_stack	*last(t_stack *head);
 void	append_node(t_stack **head, int value);
-void	print_list(t_stack *head);
 
 int		is_syntax_err(char **av);
 int		contains_duplicate(t_stack *head, int value);

@@ -70,8 +70,17 @@ char	*get_line(int fd, char **pre_line)
 char	*get_next_line(int fd)
 {
 	static char	*line;
-
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0)
+	{
+		if (line)
+		{
+			free(line);
+			line = NULL;
+		}
+		return (NULL);
+	}
+	
+	if (BUFFER_SIZE <= 0)
 		return (NULL);
 	return (get_line(fd, &line));
 }

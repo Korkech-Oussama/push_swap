@@ -37,7 +37,11 @@ void	parse_commands(t_stack **a, t_stack **b, char *command)
 	else if (!ft_strcmp(command, "rrr\n"))
 		rrr(a, b);
 	else
+	{	
+		get_next_line(-1);
+		free(command);
 		error_exit(a, b);
+	}
 }
 
 int	main(int ac, char *av[])
